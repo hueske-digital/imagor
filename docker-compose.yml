@@ -2,7 +2,7 @@ services:
   app:
     image: shumc/imagor:latest
     volumes:
-      - app_data:/mnt/data
+      - $PWD/data:/mnt/data
     restart: unless-stopped
     environment:
       - IMAGOR_SECRET
@@ -15,9 +15,6 @@ services:
       - IMAGOR_AUTO_WEBP=1
     networks:
       proxy_apps:
-
-volumes:
-  app_data:
 
 networks:
   proxy_apps:
