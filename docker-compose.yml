@@ -1,0 +1,25 @@
+services:
+  app:
+    image: shumc/imagor:latest
+    volumes:
+      - app_data:/mnt/data
+    restart: unless-stopped
+    environment:
+      - IMAGOR_SECRET
+      - HTTP_LOADER_ALLOWED_SOURCES
+      - PORT=8000
+      - FILE_LOADER_BASE_DIR=/mnt/data
+      - FILE_STORAGE_BASE_DIR=/mnt/data
+      - FILE_RESULT_STORAGE_BASE_DIR=/mnt/data/result
+      - IMAGOR_UNSAFE=0
+      - IMAGOR_AUTO_WEBP=1
+    networks:
+      proxy_apps:
+
+volumes:
+  app_data:
+
+networks:
+  proxy_apps:
+    name: proxy_apps
+    external: true
