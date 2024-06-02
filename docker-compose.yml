@@ -4,9 +4,8 @@ services:
     volumes:
       - $PWD/data:/mnt/data
     restart: unless-stopped
+    user: nobody
     environment:
-      - UID=1000
-      - GID=1000
       - IMAGOR_SECRET
       - HTTP_LOADER_ALLOWED_SOURCES
       - PORT=8000
