@@ -4,7 +4,7 @@ services:
     volumes:
       - $PWD/data:/mnt/data
     restart: unless-stopped
-    user: nobody
+    user: "1000:1000"
     environment:
       - IMAGOR_SECRET
       - HTTP_LOADER_ALLOWED_SOURCES
